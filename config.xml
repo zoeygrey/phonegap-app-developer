@@ -45,6 +45,7 @@
     <plugin name="cordova-plugin-whitelist" spec="~1.0.0" />
     <plugin name="cordova-plugin-insomnia" spec="~4.0.1" />
     <plugin name="cordova-plugin-ble-central" spec="~1.0.4" />
+    <plugin name="ordova-zeroconf-plugin" spec="1.2.0" />
     <platform name="ios">
         <icon height="76" src="resources/icon/ios/icon-76.png" width="76" />
         <icon height="152" src="resources/icon/ios/icon-76@2x.png" width="152" />

@@ -52,6 +52,12 @@ $().ready(function() {
 });
 
 $(document).on('deviceready', function() {
+    /*
+    ZeroConf.watch('_http._tcp.local.', function(service) {
+        console.log(service);
+    });
+*/
+               //console.log(ZeroConf);
     // Add slight delay to allow DOM rendering to finish.
     // Avoids flicker on slower devices.
     setTimeout(function() {
