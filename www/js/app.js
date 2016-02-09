@@ -47,17 +47,17 @@ $().ready(function() {
         console.log(window.phonegap.app.analytic.getPermissionStatus(config));
     });
 
+    // Allow user to auto connect or not
+    $('#auto-connect-checkbox').on('change', function(data) {
+        window.phonegap.app.setAutoConnectPermission(config, $('#auto-connect-checkbox').prop('checked'));
+        console.log(window.phonegap.app.getAutoConnectPermission(config));
+    });
+
     // Work around CSS browser issues.
     supportBrowserQuirks();
 });
 
 $(document).on('deviceready', function() {
-    /*
-    ZeroConf.watch('_http._tcp.local.', function(service) {
-        console.log(service);
-    });
-*/
-               //console.log(ZeroConf);
     // Add slight delay to allow DOM rendering to finish.
     // Avoids flicker on slower devices.
     setTimeout(function() {
@@ -77,6 +77,17 @@ $(document).on('deviceready', function() {
             // load analytics permission value
             $('#analytic-checkbox').prop('checked', window.phonegap.app.analytic.getPermissionStatus(config));
             window.phonegap.app.analytic.logEvent(config, 'startup', 'deviceready');
+
+            $('#auto-connect-checkbox').prop('checked', window.phonegap.app.getAutoConnectPermission(config));
+
+            cambiocreative.CDVZeroConfig.watch('_http._tcp.local.', function(service) {
+                if(window.phonegap.app.getAutoConnectPermission(config)) {
+                    if(service.action == "added") {
+                        $('#address').val(service.service.addresses[0]+':'+service.service.port);
+                        buildSubmit();
+                    }
+                }
+            });
 
             // load server address
             if (config.address) {

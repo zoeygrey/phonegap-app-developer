@@ -28,6 +28,7 @@
             // load defaults
             config.address = config.address || '127.0.0.1:3000';
             config.optIn = config.optIn || false;
+            config.autoConnect = config.autoConnect || false;
             callback(config);
         });
     };
@@ -44,6 +45,28 @@
         saveFile('config.json', data, function(e) {
             callback();
         });
+    };
+
+    /**
+     * Enabled or disable auto connection
+     *
+     * Options:
+     *   - `config` {object} config object that holds the app's data
+     *   - `permissionVal` {boolean} autoConnect value
+     */
+
+     window.phonegap.app.setAutoConnectPermission = function(config, permissionVal) {
+        config.autoConnect = permissionVal;
+        window.phonegap.app.config.save(config, function() {});
+    };
+
+    /**
+     * Get the text status of the auto connection
+     *   - `config` {object} config object that holds the app's data
+     */
+
+     window.phonegap.app.getAutoConnectPermission = function(config) {
+        return config.autoConnect;
     };
 
     /*!
