@@ -90,4 +90,14 @@
     <engine name="wp8" spec="~3.8.1" />
     <engine name="android" spec="~5.0.0" />
     <engine name="ios" spec="~4.0.1" />
+    <platform name="android">
+        <content src="http://10.0.2.2:8080/index.html" />
+        <allow-intent href="market:*" />
+    </platform>
+    <platform name="ios">
+        <content src="http://localhost:8080/index.html" />
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+        <allow-navigation href="http://*/*" />
+    </platform>
 </widget>
