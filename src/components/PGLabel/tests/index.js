@@ -1,29 +1,19 @@
 import React from 'react';
 import expect from 'expect';
-import TestUtils from 'react-addons-test-utils';
+import { shallow } from 'enzyme';
 
 import PGLabel from '..';
 
-const props = {
-  children: <div />,
-};
-
-function setup(localProps = props) {
-  const renderer = TestUtils.createRenderer();
-  renderer.render(<PGLabel {...localProps} />);
-  const output = renderer.getRenderOutput();
-
-  return {
-    localProps,
-    output,
-    renderer,
-  };
-}
-
 describe('PGLabel component', () => {
   it('should render correctly', () => {
-    const { output } = setup();
-    expect(output.type).toBe('div');
-    expect(output.props.className).toBe('pglabel');
+    const wrapper = shallow(<PGLabel/>);
+    expect(wrapper.is('div')).toBe(true);
+    expect(wrapper.hasClass('pglabel')).toBe(true);
+  });
+  it('should render children correctly', () => {
+    expect(
+      shallow(<PGLabel>PhoneGap Developer App</PGLabel>)
+      .contains('PhoneGap Developer App')
+    ).toBe(true);
   });
 });
