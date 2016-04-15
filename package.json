@@ -70,11 +70,9 @@
     "react-addons-test-utils": "^15.0.1",
     "replace": "^0.3.0",
     "request": "^2.70.0",
-    "stack-source-map": "^1.0.5",
     "style-loader": "^0.13.1",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1",
-    "webpack-hot-middleware": "^2.10.0",
     "webpack-merge": "^0.8.4",
     "xml2js": "^0.4.16"
   }
