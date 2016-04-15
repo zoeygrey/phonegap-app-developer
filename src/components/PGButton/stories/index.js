@@ -1,21 +1,30 @@
 import React from 'react';
-import { storiesOf } from '@kadira/storybook';
+import { action, storiesOf } from '@kadira/storybook';
 import PGButton from '..';
 
 storiesOf('PGButton', module)
   .add('with text', () => (
-    <PGButton>This is a PGButton</PGButton>
+    <PGButton onClick={ action('button clicked') }>This is a PGButton</PGButton>
   ))
   .add('with emoji', () => (
-    <PGButton>This is a PGButton with 💖🎉⚡️💀</PGButton>
+    <PGButton onClick={ action('button clicked') }>This is a PGButton with 💖🎉⚡️💀</PGButton>
   ))
   .add('with custom styles', () => {
     const customStyles = {
       color: 'red',
       fontWeight: 'bold',
     };
-    return <PGButton style={ customStyles }>This is a PGButton with bold red text</PGButton>;
+    return (
+      <PGButton onClick={ action('button clicked') }
+        style={ customStyles }
+      >
+        This is a PGButton with bold red text
+      </PGButton>
+    );
   })
+  .add('with no onClick', () => (
+    <PGButton>No onClick (generates an error)</PGButton>
+  ))
   .add('with no text', () => (
-    <PGButton/>
+    <PGButton onClick={ action('button clicked') }/>
   ));
