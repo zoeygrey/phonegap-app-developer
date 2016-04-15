@@ -9,14 +9,18 @@ export default React.createClass({
 
   propTypes: {
     children: React.PropTypes.any,
+    style: React.PropTypes.object,
   },
 
   render() {
     const cx = classNames({
       pglabel: true,
     });
+    const { style } = this.props;
     return (
-      <div className={ cx }>{ this.props.children }</div>
+      <div className={ cx } style={ style }>
+        { this.props.children }
+      </div>
     );
   },
 });
