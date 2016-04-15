@@ -2,6 +2,10 @@ machine:
   node:
     version: 5.0.0
 
+dependencies:
+  pre:
+    - npm install -g npm
+
 general:
   artifacts:
     - "/home/ubuntu/phonegap-app-developer/platforms/android/build/outputs/apk/"
