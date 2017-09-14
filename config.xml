@@ -62,7 +62,7 @@
     </platform>
     <engine name="android" spec="~6.2.3" />
     <engine name="ios" spec="^4.5.0" />
-    <plugin name="com.wikitude.phonegap.WikitudePlugin" spec="git+https://github.com/timkim/wikitude-cordova-plugin.git#devApp" />
+
     <plugin name="cordova-plugin-battery-status" spec="^1.2.4" />
     <plugin name="cordova-plugin-ble-central" spec="^1.1.4">
         <variable name="BLUETOOTH_USAGE_DESCRIPTION" value="Bluetooth development purposes" />
